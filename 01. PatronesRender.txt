@@ -1,0 +1,6 @@
+Los patrones de render son soluciones comunes que nos pueden ayudar a resolver un 
+problema en específico, por lo general estos patrones son bien conocidos dentro de 
+la comunidad, aunque esto no significa que siempre los debamos usar, ya que cada 
+proyecto conlleva diferentes problemas y funcionalidades. 
+
+Los patrones simplemente son formas que podríamos usar para llegar a una solución. 
