@@ -10,7 +10,7 @@ import { Logo } from "./components/Logo/Logo";
 // Colección de TODOS
 const arrayTodos = [
   { text: "Carne", completed: false },
-  { text: "Licor", completed: false },
+  { text: "Licor", completed: true },
   { text: "Desechables", completed: false },
 ];
 

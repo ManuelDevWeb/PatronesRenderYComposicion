@@ -6,9 +6,11 @@ import "./TodoItem.css";
 const TodoItem = ({ text, completed }) => {
   return (
     <li className="TodoItem">
+      {/* Si completo es true, agregamos la clase de css */}
       <span className={`Icon Icon-check ${completed && "Icon-check--active"}`}>
         ✔
       </span>
+      {/* Si completo es true, agregamos la clase de css */}
       <p className={`TodoItem-p ${completed && "TodoItem-p--complete"}`}>
         {text}
       </p>

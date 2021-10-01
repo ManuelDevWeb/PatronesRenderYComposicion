@@ -1,11 +1,10 @@
-/* body {
+body {
     margin: 0;
     padding: 0;
-    background: #F2F4F5;
+    background-image: linear-gradient(10deg, #187398 0, #1f4459 50%, #131a20 100%);
     color: #1E1E1F;
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
-*/
 
 #root {
     margin: 0 24px;
