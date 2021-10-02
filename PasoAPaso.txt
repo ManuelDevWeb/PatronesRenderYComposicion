@@ -1,0 +1,49 @@
+** Preparando entorno de trabajo y maquetación de componentes **
+
+1. Crear nuestra aplicación: npm create-react-app app_todo_list
+
+2. Crear la carpeta: src/components
+
+3. Crear el componente TodoCounter: src/components/TodoCounter/TodoCounter.js
+
+4. Crear el componente TodoSearch: src/components/TodoSearch/TodoSearch.js
+
+5. Crear el componente TodoList: src/components/TodoList/TodoList.js
+
+6. Crear el componente TodoItem: src/components/TodoItem/TodoItem.js
+
+7. Crear el componente CreateTodoButton: src/components/CreateTodoButton/CreateTodoButton.js
+
+8. Crear el archivo de estilos para TodoCounter: src/components/TodoCounter/TodoCounter.css
+
+9. Crear el archivo de estilos para TodoSearch: src/components/TodoSearch/TodoSearch.css
+
+10. Crear el archivo de estilos para TodoList: src/components/TodoList/TodoList.css
+
+11. Crear el archivo de estilos para TodoItem: src/components/TodoItem/TodoItem.css
+
+12. Crear el archivo de estilos para CreateTodoButton: src/components/CreateTodoButton/CreateTodoButton.css
+
+13. Crear el componente Logo: src/components/Logo/Logo.js
+
+** Agregando interacción **
+
+14. Agregar onClick al button del componente CreateTodoButton
+
+15. Agregar onClick para completar o borrar tareas del componente TodoItem
+
+16. Agregar onChange al input del componente TodoSearch
+
+17. Manejar el estado del searchValue en el componente App utilizando useState
+
+18. Manejar el estado del array de todos en el componente App utilizando useState
+
+19. Almacenar el numero de todos completadas y el total de todos en el componente App haciendo un filter
+
+20. Crear la lógica para controlar la busqueda por el input en el componente App
+
+21. Crear la lógica para controlar el completado de las tareas en el componente App
+
+** Agregando escalabilidad **
+
+22. 

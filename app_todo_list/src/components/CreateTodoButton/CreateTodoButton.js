@@ -4,8 +4,18 @@ import React from 'react';
 import './CreateTodoButton.css';
 
 const CreateTodoButton = () => {
+    // Función que se ejecuta al dar click en el button
+    const onClickButton=()=>{
+        alert('Felicidades se ejecuto la función')
+    }
+
+
     return (  
-        <button className="CreateTodoButton">+</button>
+        <button 
+            className="CreateTodoButton"
+            onClick={onClickButton}
+        >
+        +</button>
     );
 }
  

@@ -4,16 +4,21 @@ import React from "react";
 import { TodoItem } from "../TodoItem/TodoItem";
 
 // Importando estilos
-import './TodoList.css';
+import "./TodoList.css";
 
-const TodoList = ({ arrayTodos }) => {
+const TodoList = ({ arrayTodos, completeTodos, deleteTodos }) => {
   return (
     <section>
       <ul>
         {
           // Mapeando el array de TODOS
           arrayTodos.map((item) => (
-            <TodoItem key={item.text} {...item} />
+            <TodoItem 
+              key={item.text} 
+              {...item} 
+              completeTodos={()=>completeTodos(item.text)}
+              deleteTodos={()=>deleteTodos(item.text)}
+            />
           ))
         }
       </ul>
