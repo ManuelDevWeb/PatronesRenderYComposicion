@@ -4,15 +4,27 @@ import React, { useState } from "react";
 import { AppUI } from "./AppUI";
 
 // Colección de TODOS
-const defaultTodos = [
-  { text: "Carne", completed: true },
-  { text: "Licor", completed: false },
-  { text: "Desechables", completed: true },
-];
+// const defaultTodos = [
+//   { text: "Carne", completed: true },
+//   { text: "Licor", completed: false },
+//   { text: "Desechables", completed: true },
+// ];
 
 function App() {
+  // Implementando localstorage
+  const localStorageTodos=localStorage.getItem('TODOS_V1');
+  let todosStorage;
+
+  // Validando si el localstorage es vacio o no
+  if(!localStorageTodos){
+    localStorage.setItem('TODOS_V1', JSON.stringify([]));
+    todosStorage=[];
+  }else{
+    todosStorage=JSON.parse(localStorageTodos);
+  }
+
   // Manejando estado del array de tareas
-  const [todos, setTodos] = useState(defaultTodos);
+  const [todos, setTodos] = useState(todosStorage);
   // Manejando estado del searchValue
   const [searchValue, setSearchValue] = useState("");
 
@@ -36,6 +48,13 @@ function App() {
     });
   }
 
+  // Función para guardar la información en el localStorage
+  const saveTodosLocalStorage=(newTodos)=>{
+    const stringifiedTodos=JSON.stringify(newTodos);
+    localStorage.setItem('TODOS_V1', stringifiedTodos);
+    setTodos(newTodos);
+  }
+
   // Controlando las tareas completadas
   const completeTodos = (text) => {
     // Obteniendo la posicion de los text que concuerden
@@ -43,7 +62,7 @@ function App() {
     // Almacenamos todos los elementos del array todos y cambiamos el valor del atributo completed de la tarea seleccionada
     const newTodos = [...todos];
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
-    setTodos(newTodos);
+    saveTodosLocalStorage(newTodos);
   };
 
   // Controlando las tareas a eliminar
@@ -54,7 +73,7 @@ function App() {
     const newTodos = [...todos];
     // Eliminando a partir de la posición encontrada, una tarea
     newTodos.splice(todoIndex, 1);
-    setTodos(newTodos);
+    saveTodosLocalStorage(newTodos);
   };
 
   return (

@@ -46,4 +46,4 @@
 
 ** Agregando escalabilidad **
 
-22. 
+22. Manejar el localStorage en el componente App.js para almacenar datos 
