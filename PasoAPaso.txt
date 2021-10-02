@@ -46,4 +46,8 @@
 
 ** Agregando escalabilidad **
 
-22. Manejar el localStorage en el componente App.js para almacenar datos 
+22. Manejar el localStorage en el componente App.js para almacenar datos
+
+23. Crear el custom hook useLocalStorage para el manejo de la información que contiene el local storage
+
+24. 

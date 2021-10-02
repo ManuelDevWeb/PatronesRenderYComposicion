@@ -3,6 +3,9 @@ import React, { useState } from "react";
 // Importando componentes
 import { AppUI } from "./AppUI";
 
+// Importando custom hooks
+import {useLocalStorage} from "./hooks/useLocalStorage";
+
 // Colección de TODOS
 // const defaultTodos = [
 //   { text: "Carne", completed: true },
@@ -11,20 +14,9 @@ import { AppUI } from "./AppUI";
 // ];
 
 function App() {
-  // Implementando localstorage
-  const localStorageTodos=localStorage.getItem('TODOS_V1');
-  let todosStorage;
+  // Llamando el customHook
+  const [todos, saveTodosLocalStorage]=useLocalStorage('TODOS_V1', []);
 
-  // Validando si el localstorage es vacio o no
-  if(!localStorageTodos){
-    localStorage.setItem('TODOS_V1', JSON.stringify([]));
-    todosStorage=[];
-  }else{
-    todosStorage=JSON.parse(localStorageTodos);
-  }
-
-  // Manejando estado del array de tareas
-  const [todos, setTodos] = useState(todosStorage);
   // Manejando estado del searchValue
   const [searchValue, setSearchValue] = useState("");
 
@@ -46,13 +38,6 @@ function App() {
       const searchText = searchValue.toLowerCase();
       return todoText.includes(searchText);
     });
-  }
-
-  // Función para guardar la información en el localStorage
-  const saveTodosLocalStorage=(newTodos)=>{
-    const stringifiedTodos=JSON.stringify(newTodos);
-    localStorage.setItem('TODOS_V1', stringifiedTodos);
-    setTodos(newTodos);
   }
 
   // Controlando las tareas completadas
