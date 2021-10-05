@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
+
+// Importando contexto
+import { TodoContext } from "../../TodoContext";
 
 // Importando componentes
 import { TodoItem } from "../TodoItem/TodoItem";
@@ -6,13 +9,14 @@ import { TodoItem } from "../TodoItem/TodoItem";
 // Importando estilos
 import "./TodoList.css";
 
-const TodoList = ({ arrayTodos, completeTodos, deleteTodos, error, loading }) => {
+const TodoList = () => {
+  const {arrayTodos, completeTodos, deleteTodos, error, loading}=useContext(TodoContext);
   return (
     <section>
       <ul>
-        {error ? <p>Hubo un error 😔</p> : null}
-        {loading ? <p>Cargando, no desesperes!</p> : null}
-        {(!loading && !arrayTodos.length) ? <p>Crea tu primer TODO</p> : null}
+        {error && <p>Hubo un error 😔</p>}
+        {loading && <p>Cargando, no desesperes!</p>}
+        {(!loading && !arrayTodos.length) && <p>Crea tu primer TODO</p>}
         {
           // Mapeando el array de TODOS
           arrayTodos.map((item) => (

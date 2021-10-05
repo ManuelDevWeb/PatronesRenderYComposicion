@@ -50,4 +50,8 @@
 
 23. Crear el custom hook useLocalStorage para el manejo de la información que contiene el local storage
 
-24. 
+24. Implementar useState y manejar error y loading en el custom hook useLocalStorage
+
+25. Crear el archivo para manejar el context: src/TodoContext.js
+
+26. Implementar el Context en nuestro componentes
