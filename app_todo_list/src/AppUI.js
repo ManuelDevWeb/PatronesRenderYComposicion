@@ -7,7 +7,7 @@ import { TodoList } from "./components/TodoList/TodoList";
 import { CreateTodoButton } from "./components/CreateTodoButton/CreateTodoButton";
 import { Logo } from "./components/Logo/Logo";
 
-const AppUI = ({completedTodos, totalTodos, searchValue, arrayTodos, setSearchValue, completeTodos, deleteTodos}) => {
+const AppUI = ({completedTodos, totalTodos, searchValue, arrayTodos, setSearchValue, completeTodos, deleteTodos, error, loading}) => {
   return (
     <Fragment>
       <Logo />
@@ -17,6 +17,8 @@ const AppUI = ({completedTodos, totalTodos, searchValue, arrayTodos, setSearchVa
         arrayTodos={arrayTodos}
         completeTodos={completeTodos}
         deleteTodos={deleteTodos}
+        error={error}
+        loading={loading}
       />
       <CreateTodoButton />
     </Fragment>

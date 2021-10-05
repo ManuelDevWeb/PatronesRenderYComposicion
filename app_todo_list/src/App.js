@@ -15,7 +15,12 @@ import {useLocalStorage} from "./hooks/useLocalStorage";
 
 function App() {
   // Llamando el customHook
-  const [todos, saveTodosLocalStorage]=useLocalStorage('TODOS_V1', []);
+  const {
+    items:todos, 
+    saveItemsLocalStorage:saveTodosLocalStorage, 
+    loading,
+    error
+  }=useLocalStorage('TODOS_V1', []);
 
   // Manejando estado del searchValue
   const [searchValue, setSearchValue] = useState("");
@@ -44,7 +49,7 @@ function App() {
   const completeTodos = (text) => {
     // Obteniendo la posicion de los text que concuerden
     const todoIndex = todos.findIndex((todo) => todo.text === text);
-    // Almacenamos todos los elementos del array todos y cambiamos el valor del atributo completed de la tarea seleccionada
+    // Almacenamos todos los elementos del array toDos y cambiamos el valor del atributo completed de la tarea seleccionada
     const newTodos = [...todos];
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
     saveTodosLocalStorage(newTodos);
@@ -63,6 +68,8 @@ function App() {
 
   return (
     <AppUI
+      loading={loading}
+      error={error}
       completedTodos={completedTodos}
       totalTodos={totalTodos}
       searchValue={searchValue}
