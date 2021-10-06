@@ -15,6 +15,9 @@ const TodoProvider = ({ children }) => {
     error,
   } = useLocalStorage("TODOS_V1", []);
 
+  // Manejando estado del modal
+  const [openModal, setOpenModal]=useState(false);
+
   // Manejando estado del searchValue
   const [searchValue, setSearchValue] = useState("");
 
@@ -71,6 +74,8 @@ const TodoProvider = ({ children }) => {
         arrayTodos: searchedTodos,
         completeTodos,
         deleteTodos,
+        openModal, 
+        setOpenModal
     }}>
         {children}
     </TodoContext.Provider>

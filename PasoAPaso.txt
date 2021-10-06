@@ -55,3 +55,9 @@
 25. Crear el archivo para manejar el context: src/TodoContext.js
 
 26. Implementar el Context en nuestro componentes
+
+** Modales y formularios **
+
+27. Crear el componente Modal: src/components/Modal/Modal.js
+
+28. Crear el archivo de estilos para Modal: src/components/Modal/Modal.css
