@@ -61,3 +61,22 @@
 27. Crear el componente Modal: src/components/Modal/Modal.js
 
 28. Crear el archivo de estilos para Modal: src/components/Modal/Modal.css
+
+29. Crear el componente TodoForm: src/components/TodoForm/TodoForm.js
+
+30. Crear el archivo de estilos para TodoForm: src/components/TodoForm/TodoForm.css
+
+** Últimos ajustes a la aplicación **
+
+31. Crear el componente Error: src/components/Error/Error.js
+
+32. Crear el archivo de estilos para Error: src/components/Error/Error.css
+
+33. Crear el componente Loading: src/components/Loading/Loading.js
+
+34. Crear el archivo de estilos para Loading: src/components/Loading/Loading.css
+
+35. Crear el componente Empty: src/components/Empty/Empty.js
+
+36. Crear el archivo de estilos para Empty: src/components/Empty/Empty.css
+

@@ -10,6 +10,7 @@ import { TodoList } from "./components/TodoList/TodoList";
 import { CreateTodoButton } from "./components/CreateTodoButton/CreateTodoButton";
 import { Logo } from "./components/Logo/Logo";
 import { Modal } from "./components/Modal/Modal";
+import { TodoForm } from "./components/TodoForm/TodoForm";
 
 const AppUI = () => {
   const {openModal, setOpenModal}=useContext(TodoContext);
@@ -24,7 +25,7 @@ const AppUI = () => {
         // Validando que open modal sea verdadero
         openModal ? (
           <Modal>
-            <p>Teletransportación!</p>
+            <TodoForm />
           </Modal>
         )
         :

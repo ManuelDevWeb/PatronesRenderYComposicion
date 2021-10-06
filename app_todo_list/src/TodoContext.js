@@ -62,6 +62,17 @@ const TodoProvider = ({ children }) => {
     saveTodosLocalStorage(newTodos);
   };
 
+  // Guardando tareas en el array
+  const addTodo=(text)=>{
+    const newTodos=[...todos];
+    // Insertando la nueva tarea en el array
+    newTodos.push({
+      text,
+      completed:false
+    });
+    saveTodosLocalStorage(newTodos);
+  }
+
   return (
     // Envolviendo nuestra aplicación para que puedar utilizar el Context
     <TodoContext.Provider value={{
@@ -71,11 +82,12 @@ const TodoProvider = ({ children }) => {
         totalTodos,
         searchValue,
         setSearchValue,
+        addTodo,
         arrayTodos: searchedTodos,
         completeTodos,
         deleteTodos,
         openModal, 
-        setOpenModal
+        setOpenModal,
     }}>
         {children}
     </TodoContext.Provider>
