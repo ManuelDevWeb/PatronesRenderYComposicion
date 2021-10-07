@@ -80,3 +80,16 @@
 
 36. Crear el archivo de estilos para Empty: src/components/Empty/Empty.css
 
+** Deploy **
+
+37. Instalar GitHubPages: npm install -D gh-pages 
+
+38. Agregar el script homepage en el package.json
+
+39. Agregar los scripts predeploy y deploy en el package.json
+
+40. Finalmente ejecutar: npm run deploy
+
+51. Guardar cambios en el repo, ir al repo, settings, page y listo!
+
+https://manueldevweb.github.io/AppTodoList/

@@ -36,6 +36,7 @@ const useLocalStorage = (itemName, initialValue) => {
   const saveItemsLocalStorage = (newItem) => {
     try {
       const stringifiedItems = JSON.stringify(newItem);
+      // Guardamos en el item, el arreglo de tareas que viene desde la funcion completeTodos o deleteTodos
       localStorage.setItem(itemName, stringifiedItems);
       setItems(newItem);
     } catch (error) {
