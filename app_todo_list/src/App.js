@@ -16,6 +16,7 @@ import { TodoItem } from "./components/TodoItem/TodoItem";
 import {Error} from "./components/Error/Error";
 import {Loading} from "./components/Loading/Loading";
 import {Empty} from "./components/Empty/Empty";
+import {NotResults} from "./components/NotResults/NotResults";
 
 function App() {
   const {
@@ -41,8 +42,47 @@ function App() {
         <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
       </Header>
 
-      <TodoList>
-        {error && <Error />}
+      <TodoList
+        error={error}
+        loading={loading}
+        arrayTodos={arrayTodos}
+        totalTodos={totalTodos}
+        searchText={searchValue}
+        // Render props
+        /* 
+          Cada que se cumpla una condición que ejecuta la función en el TodoList, este nos devuelve la información
+          del componente mediante la misma función.
+         */
+        onError={()=><Error />}
+        onLoading={(index)=><Loading key={index}/>}
+        onEmptyTodos={()=><Empty />}
+        onEmptySearchResults={(searchText)=> <NotResults searchText={searchText}/>}
+        // render={(item)=>(
+        //   <TodoItem
+        //     key={item.text}
+        //     text={item.text}
+        //     completed={item.completed}
+        //     completeTodos={() => completeTodos(item.text)}
+        //     deleteTodos={() => deleteTodos(item.text)}
+        // />
+        // )}
+      >
+        {
+          // Render function, equivalente al render enviado al TodoList. Llamamos a children en vez de a render
+          (item)=>(
+            <TodoItem
+              key={item.text}
+              text={item.text}
+              completed={item.completed}
+              completeTodos={() => completeTodos(item.text)}
+              deleteTodos={() => deleteTodos(item.text)}
+          />
+          )
+        }
+      </TodoList>
+
+      {/* <TodoList>
+        { && <Error />}
         {loading &&
           new Array(5).fill().map((index) => <Loading key={index} />)}
         {!loading && !arrayTodos.length && <Empty />}
@@ -50,16 +90,10 @@ function App() {
         {
           // Mapeando el array de TODOS
           arrayTodos.map((item) => (
-            <TodoItem
-              key={item.text}
-              text={item.text}
-              completed={item.completed}
-              completeTodos={() => completeTodos(item.text)}
-              deleteTodos={() => deleteTodos(item.text)}
-            />
+            
           ))
         }
-      </TodoList>
+      </TodoList> */}
 
       {
         // Validando que open modal sea verdadero

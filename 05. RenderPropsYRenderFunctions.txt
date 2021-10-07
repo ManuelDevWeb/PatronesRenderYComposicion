@@ -1,0 +1,14 @@
+Nos ayudan a elevar nuestra composición de componentes a otro nivel.
+
+Las render props nos permiten ser más específicos sobre que vamos a renderizar, cuando 
+y donde vamos a renderizar cada parte del contenido de nuestros componentes.
+
+Render Function -> Es el patrón de entregar la información de nuestro componente en una 
+función. No es exclusivo de react context, nosotros podemos crear nuestros propios 
+componentes que usen este patrón, que reciban una función para que le podamos enviar 
+la información que queremos proveer y luego si, renderizar los componentes que ya tienen 
+la info gracias a la función.
+
+Render Props -> Cuando ya no mandamos la función dentro del componente, si no que la 
+enviamos en alguna otra propiedad del componente. Podemos jugar con este patrón para que 
+compartir información sea más divertido.

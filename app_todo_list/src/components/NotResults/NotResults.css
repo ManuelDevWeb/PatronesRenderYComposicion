@@ -1,0 +1,10 @@
+.NotResultsMessage {
+    text-align: center;
+    font-size: 3rem;
+    color: #FFFFFF;
+}
+
+.NotResultsMessage span {
+    color: #187398;
+    font-weight: bold;
+}

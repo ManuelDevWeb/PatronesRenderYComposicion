@@ -94,7 +94,7 @@
 
 https://manueldevweb.github.io/AppTodoList/
 
-** Agreando Patrones de Render y Composición **
+** Mejorando Composición **
 
 42. Modificamos el AppUI.js de tal manera que evitemos el llamado al Context en muchos
     componentes, sino en solo uno.
@@ -105,3 +105,12 @@ https://manueldevweb.github.io/AppTodoList/
     Context.
 
 45. Modificar el TodoContext.js, ahora es un custom hook useTodos   
+
+** Agregando Render Props y Render Functions **
+
+46. Modificar el componente TodoList y su llamado en el App.js con el fin de recibir
+    información de los componentes a traves de funciones
+
+47. Crear el componente NotResults: src/components/NotResults/NotResults.js    
+
+48. Crear el archivo de estilos para NotResults: src/components/NotResults/NotResults.css
