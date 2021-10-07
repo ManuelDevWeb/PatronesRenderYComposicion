@@ -36,10 +36,21 @@ function App() {
 
   return (
     <Fragment>
-      <Header>
+      <Header
+        // Pasamos propiedad loading a todos los children del header
+        loading={loading}
+      >
         <Logo />
-        <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
-        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+        <TodoCounter
+          totalTodos={totalTodos}
+          completedTodos={completedTodos}
+          //loading={loading}
+        />
+        <TodoSearch
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          //loading={loading}
+        />
       </Header>
 
       <TodoList
@@ -53,10 +64,12 @@ function App() {
           Cada que se cumpla una condición que ejecuta la función en el TodoList, este nos devuelve la información
           del componente mediante la misma función.
          */
-        onError={()=><Error />}
-        onLoading={(index)=><Loading key={index}/>}
-        onEmptyTodos={()=><Empty />}
-        onEmptySearchResults={(searchText)=> <NotResults searchText={searchText}/>}
+        onError={() => <Error />}
+        onLoading={(index) => <Loading key={index} />}
+        onEmptyTodos={() => <Empty />}
+        onEmptySearchResults={(searchText) => (
+          <NotResults searchText={searchText} />
+        )}
         // render={(item)=>(
         //   <TodoItem
         //     key={item.text}
@@ -69,14 +82,14 @@ function App() {
       >
         {
           // Render function, equivalente al render enviado al TodoList. Llamamos a children en vez de a render
-          (item)=>(
+          (item) => (
             <TodoItem
               key={item.text}
               text={item.text}
               completed={item.completed}
               completeTodos={() => completeTodos(item.text)}
               deleteTodos={() => deleteTodos(item.text)}
-          />
+            />
           )
         }
       </TodoList>
