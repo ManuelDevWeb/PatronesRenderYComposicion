@@ -1,16 +1,11 @@
-import React, { useContext, useState } from "react";
-
-// Importando contexto
-import { TodoContext } from "../../TodoContext";
+import React, { useState } from "react";
 
 // Importando estilos
 import "./TodoForm.css";
 
-const TodoForm = () => {
+const TodoForm = ({ addTodo, setOpenModal }) => {
   // Manejando estado del valor ingresado en el area
   const [newTodoValue, setNewTodoValue] = useState("");
-
-  const { addTodo, setOpenModal } = useContext(TodoContext);
 
   const onChangeArea = (e) => {
     setNewTodoValue(e.target.value);

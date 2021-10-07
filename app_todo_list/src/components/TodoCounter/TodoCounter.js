@@ -1,13 +1,9 @@
-import React, {useContext} from 'react';
-
-// Importando contexto
-import { TodoContext } from "../../TodoContext";
+import React from 'react';
 
 // Importando estilos
 import './TodoCounter.css';
 
-const TodoCounter = () => {
-    const {completedTodos,totalTodos}=useContext(TodoContext);
+const TodoCounter = ({completedTodos,totalTodos}) => {
     return (  
         <h2 className="TodoCounter">Has completado {completedTodos} de {totalTodos} tareas</h2>
     );

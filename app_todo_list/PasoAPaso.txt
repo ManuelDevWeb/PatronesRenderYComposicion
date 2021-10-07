@@ -90,6 +90,18 @@
 
 40. Finalmente ejecutar: npm run deploy
 
-51. Guardar cambios en el repo, ir al repo, settings, page y listo!
+41. Guardar cambios en el repo, ir al repo, settings, page y listo!
 
 https://manueldevweb.github.io/AppTodoList/
+
+** Agreando Patrones de Render y Composición **
+
+42. Modificamos el AppUI.js de tal manera que evitemos el llamado al Context en muchos
+    componentes, sino en solo uno.
+
+43. Crear el componente Header: src/components/Header/Header.js
+
+44. Eliminaremos el componente AppUI, de tal forma que no sea necesario utilizar React
+    Context.
+
+45. Modificar el TodoContext.js, ahora es un custom hook useTodos   

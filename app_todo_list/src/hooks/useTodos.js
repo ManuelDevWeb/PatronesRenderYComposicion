@@ -1,12 +1,9 @@
-import React, { createContext, useState } from "react";
+import { useState } from "react";
 
 // Importando custom hooks
-import {useLocalStorage} from "./hooks/useLocalStorage";
+import { useLocalStorage } from "./useLocalStorage";
 
-// Creando el contexto de la aplicación
-const TodoContext = createContext();
-
-const TodoProvider = ({ children }) => {
+const useTodos = () => {
   // Llamando el customHook
   const {
     items: todos,
@@ -16,7 +13,7 @@ const TodoProvider = ({ children }) => {
   } = useLocalStorage("TODOS_V1", []);
 
   // Manejando estado del modal
-  const [openModal, setOpenModal]=useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   // Manejando estado del searchValue
   const [searchValue, setSearchValue] = useState("");
@@ -63,35 +60,30 @@ const TodoProvider = ({ children }) => {
   };
 
   // Guardando tareas en el array
-  const addTodo=(text)=>{
-    const newTodos=[...todos];
+  const addTodo = (text) => {
+    const newTodos = [...todos];
     // Insertando la nueva tarea en el array
     newTodos.push({
       text,
-      completed:false
+      completed: false,
     });
     saveTodosLocalStorage(newTodos);
-  }
+  };
 
-  return (
-    // Envolviendo nuestra aplicación para que puedar utilizar el Context
-    <TodoContext.Provider value={{
-        loading,
-        error,
-        completedTodos,
-        totalTodos,
-        searchValue,
-        setSearchValue,
-        addTodo,
-        arrayTodos: searchedTodos,
-        completeTodos,
-        deleteTodos,
-        openModal, 
-        setOpenModal,
-    }}>
-        {children}
-    </TodoContext.Provider>
-  );
+  return {
+    loading,
+    error,
+    completedTodos,
+    totalTodos,
+    searchValue,
+    setSearchValue,
+    addTodo,
+    arrayTodos: searchedTodos,
+    completeTodos,
+    deleteTodos,
+    openModal,
+    setOpenModal,
+  };
 };
 
-export {TodoContext, TodoProvider};
+export {useTodos};

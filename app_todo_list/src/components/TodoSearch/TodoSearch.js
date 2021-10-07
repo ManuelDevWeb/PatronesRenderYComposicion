@@ -1,14 +1,9 @@
-import React, { useContext } from 'react';
-
-// Importando contexto
-import { TodoContext } from "../../TodoContext";
+import React from 'react';
 
 // Importando estilos
 import './TodoSearch.css';
 
-const TodoSearch = () => {
-    const {searchValue, setSearchValue}=useContext(TodoContext);
-
+const TodoSearch = ({searchValue, setSearchValue}) => {
     // Función que se ejecuta al escribir algo en el input
     const onSearchValueChange=(event)=>{
         // console.log(event.target.value);
