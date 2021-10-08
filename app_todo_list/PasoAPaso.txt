@@ -124,3 +124,5 @@ https://manueldevweb.github.io/AppTodoList/
 51. Crear el componente ChangeAlert: src/components/ChangeAlert/ChangeAlert.js
 
 52. Crear el componente HOC withStorageListener: src/components/ChangeAlert/withStorageListener.js
+
+53. Cambiar el HOC withStorageListener a Custom Hook (useStorageListener)

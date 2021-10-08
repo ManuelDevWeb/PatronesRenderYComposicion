@@ -17,7 +17,7 @@ import { Error } from "./components/Error/Error";
 import { Loading } from "./components/Loading/Loading";
 import { Empty } from "./components/Empty/Empty";
 import { NotResults } from "./components/NotResults/NotResults";
-import { ChangeAlertWithStorageListener } from "./components/ChangeAlert/ChangeAlert";
+import { ChangeAlert } from "./components/ChangeAlert/ChangeAlert";
 
 function App() {
   const {
@@ -121,7 +121,7 @@ function App() {
 
       <CreateTodoButton setOpenModal={setOpenModal} openModal={openModal} />
 
-      <ChangeAlertWithStorageListener sincronize={sincronizeTodos}/>
+      <ChangeAlert sincronize={sincronizeTodos}/>
     </Fragment>
   );
 }

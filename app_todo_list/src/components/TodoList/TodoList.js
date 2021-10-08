@@ -30,7 +30,7 @@ const TodoList = ({
       {(totalTodos && !arrayTodos.length) && onEmptySearchResults(searchText)}
 
       {/* {arrayTodos.map((item) => render(item))} */}
-      {arrayTodos.map((item) => renderPF(item))}
+      {(!loading && !error) && arrayTodos.map((item) => renderPF(item))}
     </section>
   );
 };
