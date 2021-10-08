@@ -1,4 +1,4 @@
-import React,{Fragment} from "react";
+import React, { Fragment } from "react";
 
 // Importando custom hook useTodos
 import { useTodos } from "./hooks/useTodos";
@@ -13,10 +13,11 @@ import { CreateTodoButton } from "./components/CreateTodoButton/CreateTodoButton
 import { Modal } from "./components/Modal/Modal";
 import { TodoForm } from "./components/TodoForm/TodoForm";
 import { TodoItem } from "./components/TodoItem/TodoItem";
-import {Error} from "./components/Error/Error";
-import {Loading} from "./components/Loading/Loading";
-import {Empty} from "./components/Empty/Empty";
-import {NotResults} from "./components/NotResults/NotResults";
+import { Error } from "./components/Error/Error";
+import { Loading } from "./components/Loading/Loading";
+import { Empty } from "./components/Empty/Empty";
+import { NotResults } from "./components/NotResults/NotResults";
+import { ChangeAlertWithStorageListener } from "./components/ChangeAlert/ChangeAlert";
 
 function App() {
   const {
@@ -32,15 +33,16 @@ function App() {
     arrayTodos,
     completeTodos,
     deleteTodos,
+    sincronizeTodos
   } = useTodos();
 
   return (
     <Fragment>
+      <Logo />
       <Header
         // Pasamos propiedad loading a todos los children del header
         loading={loading}
       >
-        <Logo />
         <TodoCounter
           totalTodos={totalTodos}
           completedTodos={completedTodos}
@@ -70,14 +72,14 @@ function App() {
         onEmptySearchResults={(searchText) => (
           <NotResults searchText={searchText} />
         )}
-        // render={(item)=>(
+        // render={(item) => (
         //   <TodoItem
         //     key={item.text}
         //     text={item.text}
         //     completed={item.completed}
         //     completeTodos={() => completeTodos(item.text)}
         //     deleteTodos={() => deleteTodos(item.text)}
-        // />
+        //   />
         // )}
       >
         {
@@ -87,8 +89,8 @@ function App() {
               key={item.text}
               text={item.text}
               completed={item.completed}
-              completeTodos={() => completeTodos(item.text)}
-              deleteTodos={() => deleteTodos(item.text)}
+              onComplete={() => completeTodos(item.text)}
+              onDelete={() => deleteTodos(item.text)}
             />
           )
         }
@@ -118,6 +120,8 @@ function App() {
       }
 
       <CreateTodoButton setOpenModal={setOpenModal} openModal={openModal} />
+
+      <ChangeAlertWithStorageListener sincronize={sincronizeTodos}/>
     </Fragment>
   );
 }

@@ -8,6 +8,8 @@ const useLocalStorage = (itemName, initialValue) => {
   const [loading, setLoading]=useState(true);
   // Manejando estado de error
   const [error, setError]=useState(false);
+  // Manejando estado de sincronizacion
+  const [sincronizedItem, setSincronizedItem]=useState(true);
 
   useEffect(()=>{
     setTimeout(()=>{
@@ -26,11 +28,13 @@ const useLocalStorage = (itemName, initialValue) => {
 
         setItems(itemsStorage);
         setLoading(false);
+        setSincronizedItem(true);
       } catch (error) {
         setError(error);
       }
-    },1500)
-  })
+    },3000)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[sincronizedItem]);
   
   // Función para guardar la información en el localStorage
   const saveItemsLocalStorage = (newItem) => {
@@ -44,7 +48,13 @@ const useLocalStorage = (itemName, initialValue) => {
     } 
   };
 
-  return {items, saveItemsLocalStorage, loading, error};
+  // Función para cambiar el estado de loading y sincronizedItem
+  const sincronizeItem=()=>{
+    setLoading(true);
+    setSincronizedItem(false);
+  }
+
+  return {items, saveItemsLocalStorage, loading, error, sincronizeItem};
 };
 
 export { useLocalStorage };

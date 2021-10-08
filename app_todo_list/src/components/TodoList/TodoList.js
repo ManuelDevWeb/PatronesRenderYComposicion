@@ -25,14 +25,12 @@ const TodoList = ({
 
       {loading && new Array(5).fill().map((index) => onLoading(index))}
 
-      {!loading && !totalTodos && onEmptyTodos()}
+      {(!loading && !totalTodos) && onEmptyTodos()}
 
-      {totalTodos && !arrayTodos.length && onEmptySearchResults(searchText)}
+      {(totalTodos && !arrayTodos.length) && onEmptySearchResults(searchText)}
 
       {/* {arrayTodos.map((item) => render(item))} */}
       {arrayTodos.map((item) => renderPF(item))}
-
-      <ul>{children}</ul>
     </section>
   );
 };

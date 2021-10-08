@@ -3,13 +3,13 @@ import React from "react";
 // Importando estilos
 import "./TodoItem.css";
 
-const TodoItem = ({ text, completed, completeTodos, deleteTodos }) => {
+const TodoItem = ({ text, completed, onComplete, onDelete }) => {
   return (
     <li className="TodoItem">
       {/* Si completo es true, agregamos la clase de css */}
       <span
         className={`Icon Icon-check ${completed && "Icon-check--active"}`}
-        onClick={completeTodos}
+        onClick={onComplete}
       >
         ✔
       </span>
@@ -17,7 +17,7 @@ const TodoItem = ({ text, completed, completeTodos, deleteTodos }) => {
       <p className={`TodoItem-p ${completed && "TodoItem-p--complete"}`}>
         {text}
       </p>
-      <span className="Icon Icon-delete" onClick={deleteTodos}>
+      <span className="Icon Icon-delete" onClick={onDelete}>
         X
       </span>
     </li>

@@ -8,6 +8,7 @@ const useTodos = () => {
   const {
     items: todos,
     saveItemsLocalStorage: saveTodosLocalStorage,
+    sincronizeItem: sincronizeTodos,
     loading,
     error,
   } = useLocalStorage("TODOS_V1", []);
@@ -83,6 +84,7 @@ const useTodos = () => {
     deleteTodos,
     openModal,
     setOpenModal,
+    sincronizeTodos
   };
 };
 

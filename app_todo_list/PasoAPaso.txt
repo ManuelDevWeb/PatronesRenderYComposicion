@@ -114,3 +114,13 @@ https://manueldevweb.github.io/AppTodoList/
 47. Crear el componente NotResults: src/components/NotResults/NotResults.js    
 
 48. Crear el archivo de estilos para NotResults: src/components/NotResults/NotResults.css
+
+49. Modificar el componente Header.js con el fin de utilizar React.cloneElement y React.Children
+
+** High Order Components **
+
+50. Modificar el custom hook useLocalStorage
+
+51. Crear el componente ChangeAlert: src/components/ChangeAlert/ChangeAlert.js
+
+52. Crear el componente HOC withStorageListener: src/components/ChangeAlert/withStorageListener.js
